@@ -188,7 +188,7 @@ class MT940
             $lastType = null;
             foreach ($descriptionLines as $line) {
                 if (strlen($line) > 5 && $line[4] === '+') {
-                    if ($lastType != null) {
+                    if ($lastType != null && isset($description[$lastType])) {
                         $description[$lastType] = trim($description[$lastType]);
                     }
                     $lastType = substr($line, 0, 4);
